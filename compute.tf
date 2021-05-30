@@ -92,17 +92,6 @@ boot_disk {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     resource "google_compute_instance" "Vm_perroquet" {
       name = "perroquet"
       machine_type = "f1-micro"
@@ -133,26 +122,6 @@ boot_disk {
 
      http_health_check {
        port_name          = "health-check-port"
-       port_specification = "USE_NAMED_PORT"
-       host               = "1.2.3.4"
-       request_path       = "/mypath"
-       proxy_header       = "NONE"
-       response           = "I AM HEALTHY"
-     }
-   }
-
-
-   resource "google_compute_health_check" "http-health-checks" {
-     name        = "http-health-checks"
-     description = "Health check via http"
-
-     timeout_sec         = 1
-     check_interval_sec  = 4
-     healthy_threshold   = 5
-     unhealthy_threshold = 3
-
-     http_health_check {
-       port_name          = "health-check-ports"
        port_specification = "USE_NAMED_PORT"
        host               = "1.2.3.4"
        request_path       = "/mypath"
