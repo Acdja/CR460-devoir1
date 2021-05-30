@@ -123,7 +123,7 @@ boot_disk {
      http_health_check {
        port_name          = "health-check-port"
        port_specification = "USE_NAMED_PORT"
-       host               = "1.2.3.4"
+       host               = "35.243.199.94"
        request_path       = "/mypath"
        proxy_header       = "NONE"
        response           = "I AM HEALTHY"
