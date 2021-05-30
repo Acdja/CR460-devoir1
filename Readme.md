@@ -73,11 +73,22 @@ Le fichier contiendra:
 * un lien vers votre repository Github (Collaborateurs ?)
 * les captures d'écran demandées.
 
-#### GitHub
-Les fichiers Terraform doivent être séparés en modules selon les ressources.
-Vous devez utiliser:
-* des variables pour identifier le projet et la zone de traitement
-* un fichier data data pour calculer le réseau par défaut et le projet par défaut, ce dernier via une variable
-* un output pour obtenir directement l'adresse ip du serveur web.
 
-# Vous pouvez détruire votre infrastructure une fois les captures d'écran obtenues
+# A prendre a consideration dans mon travail:
+- courant notre travail, nous avons constate que CoreOs 2514.1.0 etait en fin de vie et c est la
+  raison pour laquelle nous l avons remplace pour installer ubuntu-os-cloud/ubuntu-2004-lts
+
+  * provider.tf
+  * regroupe les informations du fournisseur cloud
+* compute.tf
+  * regroupe les informations d'instance
+* network.tf  
+  * regroupe les informations du reseau, sous reseau et Pare-feu
+* data.tf
+  * sources externes
+  * https://www.terraform.io/docs/configuration/data-sources.html
+* variables.tf
+  * Déclaration de variables internes
+  * https://www.terraform.io/docs/configuration/variables.html
+* output.tf
+  * présente une information suite à la création de l'infrastructure
