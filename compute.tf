@@ -61,7 +61,33 @@ boot_disk {
      }
   }
 
+  resource "google_compute_instance_group_manager" "hamster-gm" {
+     name = "hamster-gm"
+     base_instance_name = "worker"
+     version {
+       instance_template = google_compute_instance_template.hamster.self_link
+       name = "primary"
+       }
+       zone = "us-central1-c"
+   }
 
+
+   resource "google_compute_autoscaler" "hamster-autoscaler" {
+     name = "hamster-autoscaler"
+     zone         = "us-central1-c"
+     target = google_compute_instance_group_manager.hamster-gm.self_link
+
+     autoscaling_policy {
+       max_replicas = 5
+       min_replicas = 1
+       cooldown_period = 180
+
+      cpu_utilization {
+        target = 0.53
+       }
+     }
+
+    }
 
 
 
