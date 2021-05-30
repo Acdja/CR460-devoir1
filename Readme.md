@@ -22,7 +22,7 @@ avec un serveur apache2 à jour
   * _le serveur doit être accessible publiquement_
   * _Un Health-Check HTTP complet vérifiera le serveur aux 4 secondes, une instance deviendra healthy après 5 succès et unhealthy après 3 échecs_
 
-* une instance nommée "chat"*
+* une instance nommée "chat"
 de type "f1-micro"
 CoreOs 2514.1.0
 cible "interne"
